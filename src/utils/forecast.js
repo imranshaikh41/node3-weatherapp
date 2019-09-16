@@ -13,13 +13,14 @@ const forecast = (lat, long, callback) => {
         else {
             //const data = JSON.parse(response.body)
             const current = body.currently;
-            const forecast = 
+            // console.log(body.daily.data[0]);
+            const forecast =
                 // temp: body.currently.temperature,
                 // percip: body.currently.precipProbability,
                 // summary: body.currently.summary
 
-               "it is currently " + body.currently.temperature + " degrees out. There is " + body.currently.precipProbability + " % chance of rain. "+ body.currently.summary
-          
+                "it is currently " + body.currently.temperature + " degrees out. The high today is " + body.daily.data[0].temperatureHigh + " The min temp is " + body.daily.data[0].temperatureLow + " There is " + body.currently.precipProbability + " % chance of rain. " + body.currently.summary
+
             // console.log("it is currently " + current.temperature + " degrees out. There is " + current.precipProbability + " % chance of rain")
             callback(undefined, forecast)
         }
